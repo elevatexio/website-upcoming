@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ElevateX.Io</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #282c36;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        h1 {
+            font-size: 3em;
+            margin-bottom: 10px;
+        }
+        #countdown {
+            font-size: 2em;
+            margin-top: 20px;
+        }
+        .subscription {
+            margin-top: 20px;
+        }
+        input[type=email] {
+            padding: 10px;
+            font-size: 1em;
+            border: none;
+            border-radius: 5px;
+            width: 250px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 1em;
+            border: none;
+            border-radius: 5px;
+            background-color: #ff9800;
+            color: white;
+            cursor: pointer;
+        }
+        .social-links {
+            margin-top: 20px;
+        }
+        .social-links a {
+            color: white;
+            margin: 0 10px;
+            font-size: 1.5em;
+            text-decoration: none;
+        }
+        .address {
+            margin-top: 20px;
+            font-size: 1.2em;
+        }
+    </style>
+</head>
+<body>
+    <h1>ElevateX.Io - Coming Soon</h1>
+    <p>Empowering Careers, Accelerating Futures. Innovating IT & Digital Success.</p>
+    <div id="countdown"></div>
+    
+    <div class="subscription">
+        <p>Subscribe to get notified when we launch:</p>
+        <input type="email" id="email" placeholder="Enter your email">
+        <button onclick="subscribe()">Notify Me</button>
+    </div>
+    
+    <div class="social-links">
+        <p>Follow us on:</p>
+        <a href="https://web.facebook.com/profile.php?id=61572854667516" target="_blank">Facebook</a>
+        <a href="https://www.instagram.com/elevatex.io/" target="_blank">Instagram</a>
+        <a href="https://www.linkedin.com/company/elevatex-io/" target="_blank">LinkedIn</a>
+    </div>
+    
+    <div class="address">
+        <p>Contact Us: <a href="mailto:support@elevatexio.com" style="color:white;">support@elevatexio.com</a></p>
+        <p>Khulna Sadar, Khulna, Bangladesh-9100</p>
+    </div>
+
+    <script>
+        function countdown() {
+            const launchDate = new Date("2025-04-20T00:00:00").getTime();
+            const interval = setInterval(() => {
+                const now = new Date().getTime();
+                const timeLeft = launchDate - now;
+
+                const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+
+                document.getElementById("countdown").innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+
+                if (timeLeft < 0) {
+                    clearInterval(interval);
+                    document.getElementById("countdown").innerHTML = "We're Live!";
+                }
+            }, 1000);
+        }
+        countdown();
+
+        function subscribe() {
+            const email = document.getElementById("email").value;
+            if(email) {
+                alert(`Thank you for subscribing, ${email}!`);
+            } else {
+                alert("Please enter a valid email address.");
+            }
+        }
+    </script>
+</body>
+</html>
